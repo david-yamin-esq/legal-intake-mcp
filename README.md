@@ -1,8 +1,8 @@
-\# legal-intake-mcp
+# legal-intake-mcp
 
 
 
-\*A Model Context Protocol server for legal matter intake that knows what not to decide.\*
+*A Model Context Protocol server for legal matter intake that knows what not to decide.*
 
 
 
@@ -12,11 +12,11 @@ provider: "review this in-licensing agreement, the counterparty wants
 
 assignment of improvements." Every incoming matter has to be triaged before it
 
-reaches a lawyer: \*what is this, have we handled it before for this client, who
+reaches a lawyer: *what is this, have we handled it before for this client, who
 
 on the bench should take it, and does it need to go back to the client's own
 
-in-house team?\* This server exposes that triage as MCP tools, so a language
+in-house team?* This server exposes that triage as MCP tools, so a language
 
 model in Claude Desktop (or any MCP client) can run it against the provider's
 
@@ -26,19 +26,19 @@ that need a client decision back to the GC.
 
 
 
-The design rests on one principle: \*\*the tools surface structured signals, the
+The design rests on one principle: **the tools surface structured signals, the
 
-model reasons over them, and a human makes the call.\*\* No tool in this server
+model reasons over them, and a human makes the call.** No tool in this server
 
 decides anything.
 
 
 
-!\[Surface, reason, decide](docs/intake-pipeline.svg)
+![Surface, reason, decide](docs/intake-pipeline.svg)
 
 
 
-\## See it work
+## See it work
 
 
 
@@ -48,7 +48,7 @@ The annotations point out the moments that matter.
 
 
 
-\*\*The request:\*\*
+**The request:**
 
 
 
@@ -64,19 +64,19 @@ The annotations point out the moments that matter.
 
 
 
-The model chained five tools (`classify\_matter`, `check\_client\_history`,
+The model chained five tools (`classify_matter`, `check_client_history`,
 
-`find\_similar\_matters`, `suggest\_staffing`, `flag\_for\_escalation`) and produced
+`find_similar_matters`, `suggest_staffing`, `flag_for_escalation`) and produced
 
 a full intake. Three moments are worth slowing down on.
 
 
 
-\### 1. It distrusted a tool's output when the substance warranted
+### 1. It distrusted a tool's output when the substance warranted
 
 
 
-> \*Matter type: Licensing Agreement Review. One caveat worth flagging: the
+> *Matter type: Licensing Agreement Review. One caveat worth flagging: the
 
 > automated classifier scored complexity as Routine because it only
 
@@ -84,7 +84,7 @@ a full intake. Three moments are worth slowing down on.
 
 > substance — assignment of licensee improvements plus a broad grant — and the
 
-> near-identical prior matter both point to Complex.\*
+> near-identical prior matter both point to Complex.*
 
 
 
@@ -100,11 +100,11 @@ warrants, and here it did.
 
 
 
-\### 2. It overrode the staffing recommendation on expertise grounds
+### 2. It overrode the staffing recommendation on expertise grounds
 
 
 
-> \*The system's top capacity pick is James O'Brien, but his expertise is
+> *The system's top capacity pick is James O'Brien, but his expertise is
 
 > vendor/procurement, not licensing — so I'd override on expertise grounds:
 
@@ -112,15 +112,15 @@ warrants, and here it did.
 
 > prior matter, and his expertise areas are MSA, licensing, and indemnification
 
-> — a direct fit. Final call is yours.\*
+> — a direct fit. Final call is yours.*
 
 
 
-This is the design in one moment. `suggest\_staffing` ranked O'Brien first on
+This is the design in one moment. `suggest_staffing` ranked O'Brien first on
 
-its capacity-after-seniority logic, but it also \*returned each candidate's
+its capacity-after-seniority logic, but it also *returned each candidate's
 
-expertise areas\* rather than hiding them behind a single score. The model read
+expertise areas* rather than hiding them behind a single score. The model read
 
 that data, recognized the better substantive fit, cross-referenced the
 
@@ -134,11 +134,11 @@ have produced a worse answer. Surfacing beats deciding.
 
 
 
-\### 3. It flagged escalation against the client's own stated threshold
+### 3. It flagged escalation against the client's own stated threshold
 
 
 
-> \*Yes — escalation recommended. The tool flagged IP exposure, and that maps
+> *Yes — escalation recommended. The tool flagged IP exposure, and that maps
 
 > directly onto Vertex's own threshold of any IP assignment or licensing term.
 
@@ -146,13 +146,13 @@ have produced a worse answer. Surfacing beats deciding.
 
 > two of the client's explicitly forbidden terms — this isn't a borderline
 
-> call. In-house should be looped in before we take substantive positions.\*
+> call. In-house should be looped in before we take substantive positions.*
 
 
 
-`flag\_for\_escalation` does not escalate and does not clear. It surfaces the
+`flag_for_escalation` does not escalate and does not clear. It surfaces the
 
-triggered signals, reports the client's \*own\* standing escalation threshold,
+triggered signals, reports the client's *own* standing escalation threshold,
 
 names the contact, and frames the recommendation as a human call. Here it
 
@@ -164,11 +164,11 @@ decision where it belongs.
 
 
 
-\## The principle: surface, reason, decide
+## The principle: surface, reason, decide
 
 
 
-Every tool returns structured signals \*and the basis for them\*: matched
+Every tool returns structured signals *and the basis for them*: matched
 
 keywords, ranked candidates with their underlying data, triggered escalation
 
@@ -184,7 +184,7 @@ these specific facts, and here is the reasoning over them."
 
 
 
-\## The tools
+## The tools
 
 
 
@@ -192,17 +192,17 @@ these specific facts, and here is the reasoning over them."
 
 |---|---|
 
-| `classify\_matter` | ranked candidate matter types, with the signal phrases that matched |
+| `classify_matter` | ranked candidate matter types, with the signal phrases that matched |
 
-| `find\_similar\_matters` | comparable past matters, ranked by type-match and same-client boost |
+| `find_similar_matters` | comparable past matters, ranked by type-match and same-client boost |
 
-| `check\_client\_history` | client profile, standing preferences, recent matters, applicable templates |
+| `check_client_history` | client profile, standing preferences, recent matters, applicable templates |
 
-| `get\_matter\_history` | full detail on a specific past matter |
+| `get_matter_history` | full detail on a specific past matter |
 
-| `suggest\_staffing` | ranked lead-lawyer candidates \*\*and the seniority, capacity, and expertise behind the ranking\*\* |
+| `suggest_staffing` | ranked lead-lawyer candidates **and the seniority, capacity, and expertise behind the ranking** |
 
-| `flag\_for\_escalation` | triggered escalation signals \*\*alongside the client's own stated threshold\*\*: a flag for human judgment, never a decision |
+| `flag_for_escalation` | triggered escalation signals **alongside the client's own stated threshold**: a flag for human judgment, never a decision |
 
 
 
@@ -210,7 +210,7 @@ A seventh tool, `ping`, is a liveness check.
 
 
 
-\## How it's built
+## How it's built
 
 
 
@@ -218,7 +218,7 @@ A seventh tool, `ping`, is a liveness check.
 
 server.py                     thin MCP surface, one wrapper per tool
 
-legal\_intake/
+legal_intake/
 
 &#x20;   taxonomy.py               service categories, matter types, keyword signals
 
@@ -230,9 +230,9 @@ legal\_intake/
 
 &#x20;   staffing.py               judgment tools (staffing, escalation)
 
-&#x20;   seed\_data.py              reference data: clients, teams, lawyers, templates
+&#x20;   seed_data.py              reference data: clients, teams, lawyers, templates
 
-&#x20;   matters\_data.py           matter scenario pool
+&#x20;   matters_data.py           matter scenario pool
 
 &#x20;   seed.py                   deterministic seed generator
 
@@ -244,7 +244,7 @@ docs/
 
 
 
-Tool logic lives in the `legal\_intake` package and is testable independently
+Tool logic lives in the `legal_intake` package and is testable independently
 
 of MCP; `server.py` is a thin wrapper that exposes each as a tool with a
 
@@ -256,11 +256,11 @@ tool, chosen for explainability, determinism, and a clean division of labor
 
 with the reasoning layer. The rationale for that and every other significant
 
-choice is in \[`docs/design-decisions.md`](docs/design-decisions.md).
+choice is in [`docs/design-decisions.md`](docs/design-decisions.md).
 
 
 
-\## The demo data
+## The demo data
 
 
 
@@ -270,7 +270,7 @@ serving corporate in-house departments:
 
 
 
-\- \*\*3 client companies\*\* with deliberately contrasting profiles: a
+- **3 client companies** with deliberately contrasting profiles: a
 
 &#x20; high-governance financial-services client that escalates readily, a
 
@@ -282,13 +282,13 @@ serving corporate in-house departments:
 
 &#x20; preferences apply.
 
-\- \*\*69 matters\*\* across those clients, generated to cluster realistically
+- **69 matters** across those clients, generated to cluster realistically
 
 &#x20; (several near-identical prior matters per client and type), which is what
 
 &#x20; makes precedent retrieval meaningful.
 
-\- \*\*6 service teams, 22 lawyers, 14 templates.\*\*
+- **6 service teams, 22 lawyers, 14 templates.**
 
 
 
@@ -296,17 +296,17 @@ The data is fictional. The patterns are not.
 
 
 
-\## Run it
+## Run it
 
 
 
-Prerequisites: Python 3.11+, \[Claude Desktop](https://claude.ai/download).
+Prerequisites: Python 3.11+, [Claude Desktop](https://claude.ai/download).
 
 
 
 ```bash
 
-\# 1. Clone and enter the project
+# 1. Clone and enter the project
 
 git clone https://github.com/david-yamin-esq/legal-intake-mcp.git
 
@@ -314,29 +314,29 @@ cd legal-intake-mcp
 
 
 
-\# 2. Create and activate a virtual environment
+# 2. Create and activate a virtual environment
 
 python -m venv .venv
 
-\# macOS/Linux:
+# macOS/Linux:
 
 source .venv/bin/activate
 
-\# Windows (PowerShell):
+# Windows (PowerShell):
 
-.\\.venv\\Scripts\\Activate.ps1
-
-
-
-\# 3. Install the MCP SDK
-
-pip install "mcp\[cli]"
+.\.venv\Scripts\Activate.ps1
 
 
 
-\# 4. Build the demo database
+# 3. Install the MCP SDK
 
-python -m legal\_intake.seed
+pip install "mcp[cli]"
+
+
+
+# 4. Build the demo database
+
+python -m legal_intake.seed
 
 ```
 
@@ -356,7 +356,7 @@ mcp install server.py --name "Legal Intake"
 
 If that is unavailable in your environment, register it manually by adding this
 
-to Claude Desktop's `claude\_desktop\_config.json` (use absolute paths, and on
+to Claude Desktop's `claude_desktop_config.json` (use absolute paths, and on
 
 Windows double every backslash):
 
@@ -372,7 +372,7 @@ Windows double every backslash):
 
 &#x20;     "command": "/absolute/path/to/.venv/bin/python",
 
-&#x20;     "args": \["/absolute/path/to/server.py"]
+&#x20;     "args": ["/absolute/path/to/server.py"]
 
 &#x20;   }
 
@@ -388,13 +388,13 @@ Restart Claude Desktop, then try:
 
 
 
-> \*A new matter came in: review a master services agreement for a SaaS vendor,
+> *A new matter came in: review a master services agreement for a SaaS vendor,
 
-> counterparty paper, expedited. Run full intake.\*
+> counterparty paper, expedited. Run full intake.*
 
 
 
-\## Status and scope
+## Status and scope
 
 
 
@@ -410,13 +410,13 @@ but it would keep the principle that the tools surface and people decide,
 
 because in legal work that principle is the point. The boundaries are stated
 
-plainly in \[`docs/design-decisions.md`](docs/design-decisions.md).
+plainly in [`docs/design-decisions.md`](docs/design-decisions.md).
 
 
 
 It is a companion to a related project, an
 
-\[agentic hallucination detector](https://github.com/david-yamin-esq/agentic-hallucination-detector)
+[agentic hallucination detector](https://github.com/david-yamin-esq/agentic-hallucination-detector)
 
 for legal AI output, which shares the same mechanical-first philosophy:
 
@@ -426,7 +426,7 @@ the problem allows it.
 
 
 
-\## License
+## License
 
 
 
