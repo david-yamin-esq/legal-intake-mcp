@@ -1,0 +1,72 @@
+<svg viewBox="0 0 1180 720" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif">
+  <rect x="0" y="0" width="1180" height="720" fill="#F7F5F1"/>
+
+  <!-- Title -->
+  <text x="40" y="58" font-size="38" font-weight="700" fill="#1A2433">Surface &#8594; Reason &#8594; Decide</text>
+  <text x="40" y="88" font-size="16" fill="#5A6473">A Model Context Protocol server for legal matter intake.</text>
+
+  <!-- ===== Panel 1: SURFACE ===== -->
+  <rect x="40" y="150" width="340" height="410" rx="10" fill="#FFFFFF" stroke="#E4E1DA" stroke-width="1"/>
+  <path d="M40,214 V160 Q40,150 50,150 H370 Q380,150 380,160 V214 Z" fill="#1C7A6E"/>
+  <text x="64" y="187" font-size="24" font-weight="700" fill="#FFFFFF">SURFACE</text>
+  <text x="64" y="205" font-size="12.5" fill="#D7ECE6">the MCP server</text>
+  <text x="64" y="246" font-size="14" fill="#5A6473">Six tools return structured signals &#8212;</text>
+  <text x="64" y="266" font-size="14" fill="#5A6473">and the basis for them. Never a verdict.</text>
+
+  <!-- tool chips -->
+  <rect x="64" y="294" width="292" height="26" rx="6" fill="#EAF4F1" stroke="#CFE6DF" stroke-width="1"/>
+  <text x="76" y="311.5" font-size="13.5" font-family="'SF Mono','Cascadia Code','Consolas',monospace" fill="#1C5E55">classify_matter</text>
+  <rect x="64" y="326" width="292" height="26" rx="6" fill="#EAF4F1" stroke="#CFE6DF" stroke-width="1"/>
+  <text x="76" y="343.5" font-size="13.5" font-family="'SF Mono','Cascadia Code','Consolas',monospace" fill="#1C5E55">find_similar_matters</text>
+  <rect x="64" y="358" width="292" height="26" rx="6" fill="#EAF4F1" stroke="#CFE6DF" stroke-width="1"/>
+  <text x="76" y="375.5" font-size="13.5" font-family="'SF Mono','Cascadia Code','Consolas',monospace" fill="#1C5E55">check_client_history</text>
+  <rect x="64" y="390" width="292" height="26" rx="6" fill="#EAF4F1" stroke="#CFE6DF" stroke-width="1"/>
+  <text x="76" y="407.5" font-size="13.5" font-family="'SF Mono','Cascadia Code','Consolas',monospace" fill="#1C5E55">get_matter_history</text>
+  <rect x="64" y="422" width="292" height="26" rx="6" fill="#EAF4F1" stroke="#CFE6DF" stroke-width="1"/>
+  <text x="76" y="439.5" font-size="13.5" font-family="'SF Mono','Cascadia Code','Consolas',monospace" fill="#1C5E55">suggest_staffing</text>
+  <rect x="64" y="454" width="292" height="26" rx="6" fill="#1C7A6E"/>
+  <text x="76" y="471.5" font-size="13.5" font-family="'SF Mono','Cascadia Code','Consolas',monospace" fill="#FFFFFF">flag_for_escalation</text>
+  <text x="64" y="510" font-size="11.5" fill="#8A8578">Each tool surfaces signals and the data behind them.</text>
+  <text x="64" y="528" font-size="11.5" fill="#8A8578">The escalation tool only flags &#8212; it never decides.</text>
+
+  <!-- Arrow 1 -->
+  <line x1="386" y1="355" x2="404" y2="355" stroke="#1A2433" stroke-width="2.5"/>
+  <polygon points="404,349 414,355 404,361" fill="#1A2433"/>
+
+  <!-- ===== Panel 2: REASON ===== -->
+  <rect x="420" y="150" width="340" height="410" rx="10" fill="#FFFFFF" stroke="#E4E1DA" stroke-width="1"/>
+  <path d="M420,214 V160 Q420,150 430,150 H750 Q760,150 760,160 V214 Z" fill="#243B63"/>
+  <text x="444" y="187" font-size="24" font-weight="700" fill="#FFFFFF">REASON</text>
+  <text x="444" y="205" font-size="12.5" fill="#C7D3EA">the language model</text>
+  <text x="444" y="246" font-size="14" fill="#5A6473">Composes the signals across tools,</text>
+  <text x="444" y="266" font-size="14" fill="#5A6473">weighs them, and overrules any single</text>
+  <text x="444" y="286" font-size="14" fill="#5A6473">tool when the substance warrants.</text>
+  <rect x="444" y="316" width="292" height="190" rx="8" fill="#EEF2F9" stroke="#D8E0EE" stroke-width="1"/>
+  <text x="460" y="344" font-size="12" font-weight="700" fill="#243B63">FROM A LIVE RUN</text>
+  <text x="460" y="370" font-size="13" fill="#34507F">It overrode the capacity-ranked</text>
+  <text x="460" y="390" font-size="13" fill="#34507F">staffing pick on expertise</text>
+  <text x="460" y="410" font-size="13" fill="#34507F">grounds &#8212; and corrected a</text>
+  <text x="460" y="430" font-size="13" fill="#34507F">classifier that under-read</text>
+  <text x="460" y="450" font-size="13" fill="#34507F">complexity, on the substance.</text>
+  <text x="460" y="480" font-size="12.5" font-style="italic" fill="#6B7A99">&#8220;Final call is yours.&#8221;</text>
+
+  <!-- Arrow 2 -->
+  <line x1="766" y1="355" x2="784" y2="355" stroke="#1A2433" stroke-width="2.5"/>
+  <polygon points="784,349 794,355 784,361" fill="#1A2433"/>
+
+  <!-- ===== Panel 3: DECIDE ===== -->
+  <rect x="800" y="150" width="340" height="410" rx="10" fill="#FFFFFF" stroke="#E4E1DA" stroke-width="1"/>
+  <path d="M800,214 V160 Q800,150 810,150 H1130 Q1140,150 1140,160 V214 Z" fill="#C16A33"/>
+  <text x="824" y="187" font-size="24" font-weight="700" fill="#FFFFFF">DECIDE</text>
+  <text x="824" y="205" font-size="12.5" fill="#F6DFCB">the human</text>
+  <text x="824" y="246" font-size="14" fill="#5A6473">Makes the consequential call:</text>
+  <text x="824" y="266" font-size="14" fill="#5A6473">who staffs it, whether it escalates,</text>
+  <text x="824" y="286" font-size="14" fill="#5A6473">what position to take.</text>
+  <rect x="824" y="316" width="292" height="190" rx="8" fill="#FAF0E6" stroke="#EAD6C2" stroke-width="1"/>
+  <text x="840" y="344" font-size="12" font-weight="700" fill="#9C5526">THE BOUNDARY</text>
+  <text x="840" y="370" font-size="13" fill="#9C5526">The server flags escalation</text>
+  <text x="840" y="390" font-size="13" fill="#9C5526">against the client&#8217;s own</text>
+  <text x="840" y="410" font-size="13" fill="#9C5526">stated threshold &#8212; then</text>
+  <text x="840" y="430" font-size="13" fill="#9C5526">leaves the decision to a</text>
+  <text x="840" y="450" font-size="13" fill="#9C5526">person.</text>
+  <text x="840" y="480" font-size="12.5" font-style="italic" fill="#B07A4E">Escalation belongs to in-house.</text>
