@@ -16,7 +16,7 @@ The design rests on one principle: **the tools surface structured signals, the
 model reasons over them, and a human makes the call.** No tool in this server
 decides anything.
 
-![Surface, reason, decide](docs/intake-pipeline.svg)
+![Surface, reason, decide](docs/intake-pipeline.png)
 
 ## See it work
 
